@@ -2,6 +2,8 @@ package com.order;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,7 @@ public class OrderController {
 	OrderService service;
 	@PostMapping("order") //end point
 	@ResponseStatus(code = HttpStatus.CREATED)
-	void createOrder(@RequestBody OrderVO order) {
+	void createOrder(@Valid @RequestBody OrderVO order) {
 		service.saveOrder(order);
 		
 		System.out.println(order.getItem());
