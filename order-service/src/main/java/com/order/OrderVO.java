@@ -1,9 +1,24 @@
 package com.order;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class OrderVO {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	Integer id;
 	String item;
 	float price;
+	int quantity;
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	public String getItem() {
 		return item;
 	}
