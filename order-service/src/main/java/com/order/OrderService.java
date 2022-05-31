@@ -14,7 +14,7 @@ public class OrderService {
 	RestTemplate restTemplate;
 	public void saveOrder(OrderVO order) {
 		orderRepository.save(order);
-		restTemplate.getForEntity("http://localhost:8081/email", String.class);
+		restTemplate.getForEntity("http://EMAIL-SERVICE/email", String.class);
 	}
 
 	public List<OrderVO> getOrders() {
